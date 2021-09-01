@@ -16,7 +16,7 @@ import com.example.demo.entity.Student;
 @Mapper
 public interface StudentMapper {
 	@SelectKey(before = false,keyProperty = "stuno",
-		    statement = "call identity()",resultType = Integer.class)
+		    statement = "SELECT LAST_INSERT_ID()",resultType = Integer.class)
 	@Insert("INSERT into student (stuname,stumail,stusex,stubir)"
 			+ "values("
 			+ "#{stuname,jdbcType=VARCHAR},"
